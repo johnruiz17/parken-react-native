@@ -29,7 +29,7 @@ git clone https://github.com/johnruiz17/parken-react-native
 * Go to Settings > Platforms
 * Enable the iOS Simulator platform
 
-3. Create a Google Maps Places API key and add it to line 16 of the SearchBar.js file by assigning it as a string to the PLACES_API_KEY variable. You can find instructions on how to create a Places API key here: https://developers.google.com/maps/documentation/places/web-service/get-api-key   
+3. Create a Google Maps Places API key and set it as the value of the PLACES_API_KEY variable on line 16 of the SearchBar.js file. You can find instructions on how to create a Places API key here: https://developers.google.com/maps/documentation/places/web-service/get-api-key   
 
 ## Usage
 
