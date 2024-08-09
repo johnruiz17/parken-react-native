@@ -13,6 +13,7 @@ import useLocationStore from "../../store/locationStore";
 import { Feather, Entypo } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
+const PLACES_API_KEY = '';
 let { height, width } = Dimensions.get("window");
 
 const SearchBar = ({ navigation }) => {
@@ -31,7 +32,7 @@ const SearchBar = ({ navigation }) => {
 		// find latitute and longitude
 		const getCoordinates = async () => {
 			try {
-				const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBmKfbyyuNDy0umxTefp4yZjiXrFoGP4IE`);
+				const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${PLACES_API_KEY}`);
 				const json = await response.json();
 				const newCoordinates = json.results[0].geometry.location;
 				await setCoordinates(newCoordinates);
@@ -45,7 +46,7 @@ const SearchBar = ({ navigation }) => {
 
 		const getParkingSpots = async () => {
 			try {
-				const response = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${coordinateValues.lat},${coordinateValues.lng}&radius=1500&types=parking&key=AIzaSyBmKfbyyuNDy0umxTefp4yZjiXrFoGP4IE`);
+				const response = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${coordinateValues.lat},${coordinateValues.lng}&radius=1500&types=parking&key=${PLACES_API_KEY}`);
 				const json = await response.json();
 				await setParkingSpots(json.results);
 			} catch (err) {
